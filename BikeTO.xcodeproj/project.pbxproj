@@ -13,11 +13,11 @@
 		AFA2712F1C741E7B000DC884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA2712E1C741E7B000DC884 /* Assets.xcassets */; };
 		AFA271321C741E7B000DC884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA271301C741E7B000DC884 /* LaunchScreen.storyboard */; };
 		AFC96AB81C741EC500C5C801 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC96AB71C741EC500C5C801 /* MapKit.framework */; };
-		AFC96ABE1C741F2A00C5C801 /* BikeStations.json in Resources */ = {isa = PBXBuildFile; fileRef = AFC96AB91C741F2A00C5C801 /* BikeStations.json */; };
-		AFC96ABF1C741F2A00C5C801 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ABA1C741F2A00C5C801 /* FavoritesViewController.swift */; };
-		AFC96AC01C741F2A00C5C801 /* FeedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ABB1C741F2A00C5C801 /* FeedReader.swift */; };
-		AFC96AC11C741F2A00C5C801 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ABC1C741F2A00C5C801 /* MockData.swift */; };
-		AFC96AC21C741F2A00C5C801 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ABD1C741F2A00C5C801 /* Station.swift */; };
+		AFC96AD01C7423B800C5C801 /* BikeStations.json in Resources */ = {isa = PBXBuildFile; fileRef = AFC96ACC1C7423B800C5C801 /* BikeStations.json */; };
+		AFC96AD11C7423B800C5C801 /* FeedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ACD1C7423B800C5C801 /* FeedReader.swift */; };
+		AFC96AD21C7423B800C5C801 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ACE1C7423B800C5C801 /* MockData.swift */; };
+		AFC96AD31C7423B800C5C801 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ACF1C7423B800C5C801 /* Station.swift */; };
+		AFC96AD51C7423BF00C5C801 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96AD41C7423BF00C5C801 /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +29,11 @@
 		AFA271311C741E7B000DC884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFA271331C741E7B000DC884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC96AB71C741EC500C5C801 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		AFC96AB91C741F2A00C5C801 /* BikeStations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BikeStations.json; path = ../../BikeTO_old/BikeTO/BikeStations.json; sourceTree = "<group>"; };
-		AFC96ABA1C741F2A00C5C801 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesViewController.swift; path = ../../BikeTO_old/BikeTO/FavoritesViewController.swift; sourceTree = "<group>"; };
-		AFC96ABB1C741F2A00C5C801 /* FeedReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedReader.swift; path = ../../BikeTO_old/BikeTO/FeedReader.swift; sourceTree = "<group>"; };
-		AFC96ABC1C741F2A00C5C801 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockData.swift; path = ../../BikeTO_old/BikeTO/MockData.swift; sourceTree = "<group>"; };
-		AFC96ABD1C741F2A00C5C801 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Station.swift; path = ../../BikeTO_old/BikeTO/Station.swift; sourceTree = "<group>"; };
+		AFC96ACC1C7423B800C5C801 /* BikeStations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BikeStations.json; sourceTree = "<group>"; };
+		AFC96ACD1C7423B800C5C801 /* FeedReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedReader.swift; sourceTree = "<group>"; };
+		AFC96ACE1C7423B800C5C801 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		AFC96ACF1C7423B800C5C801 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		AFC96AD41C7423BF00C5C801 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +68,8 @@
 		AFA271241C741E7B000DC884 /* BikeTO */ = {
 			isa = PBXGroup;
 			children = (
+				AFC96AD41C7423BF00C5C801 /* FavoritesViewController.swift */,
 				AFC96AC31C741F5700C5C801 /* Model */,
-				AFC96ABA1C741F2A00C5C801 /* FavoritesViewController.swift */,
 				AFA271251C741E7B000DC884 /* AppDelegate.swift */,
 				AFA271291C741E7B000DC884 /* SecondViewController.swift */,
 				AFA2712B1C741E7B000DC884 /* Main.storyboard */,
@@ -83,10 +83,10 @@
 		AFC96AC31C741F5700C5C801 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AFC96ABB1C741F2A00C5C801 /* FeedReader.swift */,
-				AFC96ABD1C741F2A00C5C801 /* Station.swift */,
-				AFC96ABC1C741F2A00C5C801 /* MockData.swift */,
-				AFC96AB91C741F2A00C5C801 /* BikeStations.json */,
+				AFC96ACC1C7423B800C5C801 /* BikeStations.json */,
+				AFC96ACD1C7423B800C5C801 /* FeedReader.swift */,
+				AFC96ACE1C7423B800C5C801 /* MockData.swift */,
+				AFC96ACF1C7423B800C5C801 /* Station.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA271321C741E7B000DC884 /* LaunchScreen.storyboard in Resources */,
-				AFC96ABE1C741F2A00C5C801 /* BikeStations.json in Resources */,
+				AFC96AD01C7423B800C5C801 /* BikeStations.json in Resources */,
 				AFA2712F1C741E7B000DC884 /* Assets.xcassets in Resources */,
 				AFA2712D1C741E7B000DC884 /* Main.storyboard in Resources */,
 			);
@@ -164,11 +164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA2712A1C741E7B000DC884 /* SecondViewController.swift in Sources */,
-				AFC96ABF1C741F2A00C5C801 /* FavoritesViewController.swift in Sources */,
-				AFC96AC01C741F2A00C5C801 /* FeedReader.swift in Sources */,
+				AFC96AD31C7423B800C5C801 /* Station.swift in Sources */,
+				AFC96AD21C7423B800C5C801 /* MockData.swift in Sources */,
 				AFA271261C741E7B000DC884 /* AppDelegate.swift in Sources */,
-				AFC96AC21C741F2A00C5C801 /* Station.swift in Sources */,
-				AFC96AC11C741F2A00C5C801 /* MockData.swift in Sources */,
+				AFC96AD51C7423BF00C5C801 /* FavoritesViewController.swift in Sources */,
+				AFC96AD11C7423B800C5C801 /* FeedReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
