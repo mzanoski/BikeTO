@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        UITabBar.appearance().backgroundImage = Utilities.imageFromColor(ApplicationSettings.Settings.theme["baseColor"] as! UIColor, forSize: CGSizeMake(UIScreen.mainScreen().bounds.width, 44))
+        UITabBar.appearance().tintColor = UIColor.redColor()
+        
         return true
     }
 

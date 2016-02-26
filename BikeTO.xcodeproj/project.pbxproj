@@ -18,6 +18,8 @@
 		AFC96AD21C7423B800C5C801 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ACE1C7423B800C5C801 /* MockData.swift */; };
 		AFC96AD31C7423B800C5C801 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96ACF1C7423B800C5C801 /* Station.swift */; };
 		AFC96AD51C7423BF00C5C801 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96AD41C7423BF00C5C801 /* FavoritesViewController.swift */; };
+		AFC96AD71C74DC5700C5C801 /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96AD61C74DC5700C5C801 /* ApplicationSettings.swift */; };
+		AFC96AD91C750BA800C5C801 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC96AD81C750BA800C5C801 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		AFC96ACE1C7423B800C5C801 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		AFC96ACF1C7423B800C5C801 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		AFC96AD41C7423BF00C5C801 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		AFC96AD61C74DC5700C5C801 /* ApplicationSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
+		AFC96AD81C750BA800C5C801 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,14 +72,15 @@
 		AFA271241C741E7B000DC884 /* BikeTO */ = {
 			isa = PBXGroup;
 			children = (
-				AFC96AD41C7423BF00C5C801 /* FavoritesViewController.swift */,
 				AFC96AC31C741F5700C5C801 /* Model */,
 				AFA271251C741E7B000DC884 /* AppDelegate.swift */,
+				AFC96AD41C7423BF00C5C801 /* FavoritesViewController.swift */,
 				AFA271291C741E7B000DC884 /* SecondViewController.swift */,
 				AFA2712B1C741E7B000DC884 /* Main.storyboard */,
 				AFA2712E1C741E7B000DC884 /* Assets.xcassets */,
 				AFA271301C741E7B000DC884 /* LaunchScreen.storyboard */,
 				AFA271331C741E7B000DC884 /* Info.plist */,
+				AFC96AD81C750BA800C5C801 /* Util.swift */,
 			);
 			path = BikeTO;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 				AFC96ACD1C7423B800C5C801 /* FeedReader.swift */,
 				AFC96ACE1C7423B800C5C801 /* MockData.swift */,
 				AFC96ACF1C7423B800C5C801 /* Station.swift */,
+				AFC96AD61C74DC5700C5C801 /* ApplicationSettings.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -164,7 +170,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA2712A1C741E7B000DC884 /* SecondViewController.swift in Sources */,
+				AFC96AD71C74DC5700C5C801 /* ApplicationSettings.swift in Sources */,
 				AFC96AD31C7423B800C5C801 /* Station.swift in Sources */,
+				AFC96AD91C750BA800C5C801 /* Util.swift in Sources */,
 				AFC96AD21C7423B800C5C801 /* MockData.swift in Sources */,
 				AFA271261C741E7B000DC884 /* AppDelegate.swift in Sources */,
 				AFC96AD51C7423BF00C5C801 /* FavoritesViewController.swift in Sources */,

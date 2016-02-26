@@ -11,15 +11,20 @@ import MapKit
 
 class FirstViewController: UIViewController, UITableViewDataSource 	{
 
+    @IBOutlet weak var skylineImageView: UIImageView!
     @IBOutlet weak var searchStationsButton: UIButton!
     @IBOutlet weak var noFavoritesLabel: UILabel!
     @IBOutlet weak var favoritesTableView: UITableView!
+    
     var data = MockDataSource().data
     let cellIdentifier = "default"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //configure colors
+        self.favoritesTableView.separatorColor = UIColor.clearColor()
         
         //data.removeAll()
         
@@ -63,25 +68,15 @@ class FirstViewController: UIViewController, UITableViewDataSource 	{
         let row = indexPath.row
         let item = data[row] as StationDataType
         
-//        cell.layer.borderColor = UIColor.blackColor().CGColor
-//        cell.layer.borderWidth = 1.0
-        
+        cell.contentView.viewWithTag(10)!.layer.cornerRadius = 8
+        cell.contentView.viewWithTag(10)!.backgroundColor = ApplicationSettings.Settings.theme["baseColorLight"] as! UIColor
+
         (cell.contentView.viewWithTag(1) as! UILabel).text = item.stationName
         (cell.contentView.viewWithTag(3) as! UILabel).text = "\(item.availableBikes)"
         
         (cell.contentView.viewWithTag(2) as! UIImageView).tintColor = UIColor.greenColor()
         (cell.contentView.viewWithTag(4) as! UIImageView).tintColor = UIColor.greenColor()
-        (cell.contentView.viewWithTag(6) as! UIImageView).tintColor = UIColor.greenColor()
-        
-        let region = MKCoordinateRegionMakeWithDistance(item.coordinate,  2000, 2000)
-        (cell.contentView.viewWithTag(7) as! MKMapView).setRegion(region, animated: false)
-        (cell.contentView.viewWithTag(7) as! MKMapView).addAnnotation(item)
-
-        
-       // (cell.contentView.viewWithTag(5) as! UILabel).text = "\(item.availableDocks)"
-        
-//        cell.textLabel?.text = item.stationName
-//        cell.detailTextLabel?.text = "Status: \(item.statusValue)"
+        (cell.contentView.viewWithTag(6) as! UILabel).tintColor = UIColor.greenColor()
         
         return cell
     }

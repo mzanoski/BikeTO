@@ -33,7 +33,7 @@ protocol StationDataType: MKAnnotation {
 
 class MockStation: NSObject, StationDataType {
     let id: Int                         = 1
-    let stationName: String             = "Jarvis St \\/ Carlton St"
+    let stationName: String             = "Jarvis St & Carlton St"
     let availableDocks: Int             = 6
     let totalDocks: Int                 = 14
     let latitude: Double                = 43.66207
