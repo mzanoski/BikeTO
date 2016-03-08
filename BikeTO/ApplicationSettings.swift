@@ -20,6 +20,7 @@ class ApplicationSettings {
     private init(){
         self.theme["baseColor"] = UIColor(red: 52/255, green: 100/255, blue: 136/255, alpha: 1)
         self.theme["baseColorLight"] = UIColor(red: 52/255, green: 100/255, blue: 136/255, alpha: 0.15)
+        self.theme["tableViewBackground"] = UIColor(red: 52/255, green: 100/255, blue: 136/255, alpha: 0.0)
     }
 }
 //R: 52 G: 100 B: 136

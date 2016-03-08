@@ -9,14 +9,16 @@
 import UIKit
 import MapKit
 
-class FirstViewController: UIViewController, UITableViewDataSource 	{
+class FavoritesViewController: UIViewController, UITableViewDataSource, UIViewControllerWithData 	{
 
     @IBOutlet weak var skylineImageView: UIImageView!
     @IBOutlet weak var searchStationsButton: UIButton!
     @IBOutlet weak var noFavoritesLabel: UILabel!
     @IBOutlet weak var favoritesTableView: UITableView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
-    var data = MockDataSource().data
+//    var data = MockDataSource().data
+    internal var data = [StationDataType]()
     let cellIdentifier = "default"
     
     override func viewDidLoad() {
@@ -24,9 +26,12 @@ class FirstViewController: UIViewController, UITableViewDataSource 	{
         // Do any additional setup after loading the view, typically from a nib.
         
         //configure colors
-        self.favoritesTableView.separatorColor = UIColor.clearColor()
-        
-        //data.removeAll()
+        self.favoritesTableView.separatorColor = UIColor.clearColor() 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.data = ApplicationData.Data.items.filter({appDelegate.dataController.hasLocation($0.id, entityType: EntityType.Favorite)})
         
         if data.count > 0 {
             favoritesTableView.dataSource = self
@@ -41,7 +46,7 @@ class FirstViewController: UIViewController, UITableViewDataSource 	{
             noFavoritesLabel.hidden = false
             searchStationsButton.hidden = false
         }
-        
+        favoritesTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,14 +86,17 @@ class FirstViewController: UIViewController, UITableViewDataSource 	{
         return cell
     }
     
-    // MARK:  UITableViewDelegate Methods
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let row = indexPath.row
-        print(data[row])
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let item = self.data[indexPath.row]
+            if appDelegate.dataController.removeLocation(item.id, entityType: EntityType.Favorite) {
+            favoritesTableView.beginUpdates()
+                self.data.removeAtIndex(indexPath.row)
+                favoritesTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                favoritesTableView.endUpdates()
+            }
+        }
     }
-
-
 }
 

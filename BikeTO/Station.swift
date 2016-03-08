@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-protocol StationDataType: MKAnnotation {
+@objc protocol StationDataType: MKAnnotation {
     var id: Int { get}
     var stationName: String { get}
     var availableDocks: Int { get}
@@ -29,11 +29,19 @@ protocol StationDataType: MKAnnotation {
     var testStation: Bool { get}
     var lastCommunicationTime: NSDate { get}
     var landMark: Int { get}
+    var title: String? { get }
+    var subtitle: String? { get }
+}
+
+@objc protocol UIViewControllerWithData {
+    var data:[StationDataType] {get set}
 }
 
 class MockStation: NSObject, StationDataType {
     let id: Int                         = 1
     let stationName: String             = "Jarvis St & Carlton St"
+    let title: String?                  = "Jarvis St & Carlton St"
+    let subtitle: String?               = "Docks: 14, Available Docks: 6"
     let availableDocks: Int             = 6
     let totalDocks: Int                 = 14
     let latitude: Double                = 43.66207
@@ -82,21 +90,31 @@ class Station: NSObject, StationDataType {
     let lastCommunicationTime: NSDate   // "2016-02-13 12:46:17 PM",
     let landMark: Int                   //7055
     
-    init(id: Int, stationName: String, availableDocks: Int, totalDocks: Int, latitude: Double, longitude: Double, statusValue: String, statusKey: Int, availableBikes: Int, lastCommunicationTime: NSDate, landMark: Int, testStation: Bool){
+    let title: String?
+    let subtitle: String?
+    
+    init(id: Int, stationName: String, availableDocks: Int, totalDocks: Int, latitude: Double, longitude: Double, statusValue: String, statusKey: Int, availableBikes: Int, lastCommunicationTime: String, landMark: Int, testStation: Bool){
         
         self.id = id
         self.stationName = stationName
+        self.title = stationName
         self.latitude = latitude
         self.longitude = longitude
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         self.statusValue = statusValue
         self.statusKey = statusKey
         self.landMark = landMark
-        self.lastCommunicationTime = lastCommunicationTime
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss a"
+        self.lastCommunicationTime = dateFormatter.dateFromString(lastCommunicationTime)!
+
         self.testStation = testStation
         
         self.availableDocks = availableDocks
         self.totalDocks = totalDocks
         self.availableBikes = availableBikes
+        
+        self.subtitle = "Docks: \(self.availableDocks)        Bikes: \(self.availableBikes)"
     }
 }
