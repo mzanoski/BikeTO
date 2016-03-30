@@ -17,7 +17,7 @@ import MapKit
     var latitude: Double { get}
     var longitude: Double { get}
     var coordinate: CLLocationCoordinate2D { get }
-    var statusValue: String { get}
+    var statusValue: String { get set }
     var statusKey: Int { get}
     var availableBikes: Int { get}
     var stAddress1: String? { get}
@@ -47,7 +47,7 @@ class MockStation: NSObject, StationDataType {
     let latitude: Double                = 43.66207
     let longitude: Double               = -79.37617
     let coordinate: CLLocationCoordinate2D
-    let statusValue: String             = "In Service"
+    var statusValue: String             = "In Service"
     let statusKey: Int                  = 1
     let availableBikes: Int             = 8
     let stAddress1: String?             = nil
@@ -77,7 +77,7 @@ class Station: NSObject, StationDataType {
     let latitude: Double                //43.66207,
     let longitude: Double               // -79.37617,
     let coordinate: CLLocationCoordinate2D
-    let statusValue: String             // "In Service",
+    var statusValue: String             // "In Service",
     let statusKey: Int                  // 1,
     let availableBikes: Int             // 8,
     let stAddress1: String? = nil       // null,
@@ -115,6 +115,7 @@ class Station: NSObject, StationDataType {
         self.totalDocks = totalDocks
         self.availableBikes = availableBikes
         
-        self.subtitle = "Docks: \(self.availableDocks)        Bikes: \(self.availableBikes)"
+        self.subtitle = "Bikes: \(self.availableBikes)        Docks: \(self.availableDocks)"
     }
 }
+

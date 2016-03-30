@@ -10,25 +10,25 @@ import Foundation
 
 public class ApplicationData {
     static let Data = ApplicationData()
-    var items = [StationDataType]()
+    static let url = NSURL(string: "http://www.bikesharetoronto.com/stations/json")
+    var items:[StationDataType]
     
     init(){
-        let urlString = "http://www.bikesharetoronto.com/stations/json"
-        
-        if let url = NSURL(string: urlString) {
-            updateFeed(url)
-        }
+        self.items = [StationDataType]()
+        let feedUrl = ApplicationData.url
+        updateFeed(feedUrl!)
     }
     
     func updateFeed(url: NSURL) -> Void {
         let request = NSURLRequest(URL: url)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
             if error == nil && data != nil {
-                if let feed = Feed(data: data!){
-                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        self.items = feed.items
-                    })
-                }
+                let feed = Feed(data: data!)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    if let items = feed?.items {
+                        self.items = items
+                    }
+                })
             }
             
         }

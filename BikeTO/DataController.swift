@@ -47,19 +47,9 @@ class DataController {
     }
     
     func addLocation(id: Int, entityType: EntityType){
-        let fetchRequest = NSFetchRequest(entityName: entityType.rawValue)
-        fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+        let fetchedItems = getLocation(id, entityType: entityType)
         
-        var fetchedItems: [Int]!
-        
-        do{
-            fetchedItems = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [Int]
-        }
-        catch {
-            fatalError("fetching \(entityType) with id \(id) failed")
-        }
-        
-        if fetchedItems.count == 0 {
+        if fetchedItems == nil {
             if entityType == EntityType.Favorite {
                 let item = NSEntityDescription.insertNewObjectForEntityForName(entityType.rawValue, inManagedObjectContext: self.managedObjectContext) as! Favorite
                 item.id = id
@@ -79,39 +69,19 @@ class DataController {
     }
     
     func hasLocation(id: Int, entityType: EntityType) -> Bool{
-        let fetchRequest = NSFetchRequest(entityName: entityType.rawValue)
-        fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+        let item = getLocation(id, entityType: entityType)
         
-        var fetchedItems: [AnyObject]!
-        
-        do{
-            fetchedItems = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-        }
-        catch {
-            fatalError("fetching \(entityType) with id \(id) failed")
-        }
-        
-        if fetchedItems.count != 0 {
+        if item != nil {
             return true
         }
         return false
     }
     
     func removeLocation(id: Int, entityType: EntityType) -> Bool{
-        let fetchRequest = NSFetchRequest(entityName: entityType.rawValue)
-        fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+        let item = getLocation(id, entityType: entityType)
         
-        var fetchedItems: [AnyObject]!
-        
-        do{
-            fetchedItems = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-        }
-        catch {
-            fatalError("fetching \(entityType) with id \(id) failed")
-        }
-        
-        if fetchedItems.count != 0 {
-            self.managedObjectContext.deleteObject(fetchedItems[0] as! NSManagedObject)
+        if item != nil {
+            self.managedObjectContext.deleteObject(item as! NSManagedObject)
             
             do{
                 try self.managedObjectContext.save()
@@ -128,7 +98,7 @@ class DataController {
         let fetchRequest = NSFetchRequest(entityName: entityType.rawValue)
         fetchRequest.predicate = NSPredicate(format: "id == \(id)")
         
-        var fetchedItems: [AnyObject]!
+        var fetchedItems: [AnyObject] = [AnyObject]()
         
         do{
             fetchedItems = try self.managedObjectContext.executeFetchRequest(fetchRequest)
